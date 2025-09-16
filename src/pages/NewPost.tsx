@@ -2,13 +2,26 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Upload, RotateCcw, User, ChevronLeft, ChevronRight } from "lucide-react";
+import { Upload, RotateCcw, User, ChevronLeft, ChevronRight, Mic } from "lucide-react";
 import Header from "@/components/Header";
 import BottomNav from "@/components/BottomNav";
 
 const NewPost = () => {
   const [productTitle, setProductTitle] = useState("");
   const [productDescription, setProductDescription] = useState("");
+  const [currentUploadType, setCurrentUploadType] = useState(0); // 0 for images, 1 for audio
+
+  const handleLeftScroll = () => {
+    if (currentUploadType > 0) {
+      setCurrentUploadType(currentUploadType - 1);
+    }
+  };
+
+  const handleRightScroll = () => {
+    if (currentUploadType < 1) {
+      setCurrentUploadType(currentUploadType + 1);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-background flex flex-col max-w-md mx-auto">
@@ -41,30 +54,67 @@ const NewPost = () => {
       <div className="flex-1 overflow-y-auto pb-20">
         {/* Upload Section */}
         <div className="px-4 py-6">
-          <div className="relative bg-orange-light/20 border-2 border-orange-primary border-dashed rounded-2xl p-8 mb-4">
-            <div className="absolute left-4 top-1/2 transform -translate-y-1/2">
+          <div className="relative overflow-hidden bg-orange-light/20 border-2 border-orange-primary border-dashed rounded-2xl p-8 mb-4">
+            <button 
+              onClick={handleLeftScroll}
+              className={`absolute left-4 top-1/2 transform -translate-y-1/2 z-10 ${currentUploadType === 0 ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`}
+              disabled={currentUploadType === 0}
+            >
               <ChevronLeft className="w-6 h-6 text-orange-primary" />
-            </div>
-            <div className="absolute right-4 top-1/2 transform -translate-y-1/2">
+            </button>
+            <button 
+              onClick={handleRightScroll}
+              className={`absolute right-4 top-1/2 transform -translate-y-1/2 z-10 ${currentUploadType === 1 ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`}
+              disabled={currentUploadType === 1}
+            >
               <ChevronRight className="w-6 h-6 text-orange-primary" />
-            </div>
+            </button>
             
-            <div className="text-center">
-              <div className="w-16 h-16 bg-orange-primary/10 rounded-2xl mx-auto mb-4 flex items-center justify-center">
-                <div className="relative">
-                  <User className="w-8 h-8 text-orange-primary" />
-                  <Upload className="w-4 h-4 text-orange-primary absolute -top-1 -right-1" />
+            <div 
+              className="flex transition-transform duration-300 ease-in-out"
+              style={{ transform: `translateX(-${currentUploadType * 100}%)` }}
+            >
+              {/* Images Upload Slide */}
+              <div className="w-full flex-shrink-0">
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-orange-primary/10 rounded-2xl mx-auto mb-4 flex items-center justify-center">
+                    <div className="relative">
+                      <User className="w-8 h-8 text-orange-primary" />
+                      <Upload className="w-4 h-4 text-orange-primary absolute -top-1 -right-1" />
+                    </div>
+                  </div>
+                  <div className="mb-2">
+                    <span className="text-orange-primary">✨</span>
+                    <span className="text-orange-primary ml-8">✨</span>
+                  </div>
+                  <p className="text-text-primary font-medium mb-1">Upload Images,</p>
+                  <p className="text-text-primary font-medium mb-4">Pdf, Docs, etc.</p>
+                  <p className="text-orange-primary text-sm font-medium">
+                    Sit back and see, let our AI make everything for you*
+                  </p>
                 </div>
               </div>
-              <div className="mb-2">
-                <span className="text-orange-primary">✨</span>
-                <span className="text-orange-primary ml-8">✨</span>
+              
+              {/* Audio Upload Slide */}
+              <div className="w-full flex-shrink-0">
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-orange-primary/10 rounded-2xl mx-auto mb-4 flex items-center justify-center">
+                    <div className="relative">
+                      <Mic className="w-8 h-8 text-orange-primary" />
+                      <Upload className="w-4 h-4 text-orange-primary absolute -top-1 -right-1" />
+                    </div>
+                  </div>
+                  <div className="mb-2">
+                    <span className="text-orange-primary">🎵</span>
+                    <span className="text-orange-primary ml-8">🎵</span>
+                  </div>
+                  <p className="text-text-primary font-medium mb-1">Upload Audio,</p>
+                  <p className="text-text-primary font-medium mb-4">Voice recordings, etc.</p>
+                  <p className="text-orange-primary text-sm font-medium">
+                    Let our AI transcribe and analyze your audio*
+                  </p>
+                </div>
               </div>
-              <p className="text-text-primary font-medium mb-1">Upload Images,</p>
-              <p className="text-text-primary font-medium mb-4">Pdf, Docs, etc.</p>
-              <p className="text-orange-primary text-sm font-medium">
-                Sit back and see, let our AI make everything for you*
-              </p>
             </div>
           </div>
           
