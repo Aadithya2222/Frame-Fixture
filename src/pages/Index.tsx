@@ -12,7 +12,7 @@ const Index = () => {
       <SearchBar />
       <ModeToggle />
       
-      <div className="flex-1 overflow-y-auto">
+      <div className="flex-1 overflow-y-auto pb-20">
         <QuickActions />
         <PaymentStats />
       </div>
