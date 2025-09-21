@@ -1,73 +1,99 @@
-# Welcome to your Lovable project
+# AI-powered Artisan Platform
 
-## Project info
+Welcome to your AI-powered Artisan Platform!
 
-**URL**: https://lovable.dev/projects/b30fe7cf-99fc-4edd-9ab4-6e8351edf555
+## Project Overview
 
-## How can I edit this code?
+This platform is an AI-driven solution designed to empower local artisans, helping them market their craft, tell their stories, and expand their reach to digital audiences.
 
-There are several ways of editing your application.
+---
 
-**Use Lovable**
+## Core Features
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/b30fe7cf-99fc-4edd-9ab4-6e8351edf555) and start prompting.
+- **AI-powered Storytelling for Artisans:**  
+  Showcase the heritage, techniques, and unique stories behind each craft.
 
-Changes made via Lovable will be committed automatically to this repo.
+- **Multilingual Auto-Translation:**  
+  Translate listings and artisan stories into local languages and English for wider reach.
 
-**Use your preferred IDE**
+- **Craft Authenticity & Trust Badges:**  
+  Generate badges like “Handmade,” “Eco-friendly,” and “Heritage Craft” to build credibility.
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+- **Smart AI-driven Price Estimator:**  
+  Suggest fair pricing based on material costs, labor, and market trends.
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+- **AI Social Media Booster:**  
+  Create ready-to-post content, hashtags, and short reels to increase online visibility.
 
-Follow these steps:
+- **Offline & Low-Bandwidth Support:**  
+  Draft listings and auto-sync when internet is available for rural artisans.
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+---
 
-# Step 2: Navigate to the project directory.
+## Project Challenge
+
+Indian artisans and craftsmen, rich in traditional skills and cultural heritage, often face challenges in the modern digital marketplace:
+
+- Lack of digital marketing skills
+- Limited resources
+- Difficulty bridging traditional craftsmanship with contemporary consumer trends
+
+This creates a disconnect between valuable traditional art forms and digitally-native audiences, threatening the sustainability of these crafts.
+
+---
+
+## Project Objective
+
+Develop a creative solution leveraging Google Cloud's generative AI to:
+
+- Enhance artisans’ digital presence
+- Improve marketing and sales strategies
+- Help artisans effectively tell the story of their craft
+
+The solution should harmonize traditional craftsmanship with modern preferences, expand market access, and secure the future of these unique art forms.
+
+---
+
+## Recommended Research Papers & References
+
+| Title | Key Insight | Link |
+|-------|-------------|------|
+| IPL: Leveraging Multimodal LLMs for Intelligent Product Listing | AI generates product titles, descriptions, tags from images + metadata | arXiv |
+| AI for Economic Upliftment of Handicraft Industry | Generates contemporary designs aligned with market trends | arXiv |
+| Generative AI-Driven Storytelling for Marketing | Creates personalized narratives for emotional buyer engagement | arXiv |
+| Automatic Product Copywriting for E-Commerce | Scales product description generation with human-in-the-loop | Wiley Online |
+| Handicraft Design Using AI in Complex Environments | Classifies craft patterns, suggests pricing, and design prototypes | Wiley Online |
+
+These papers provide a foundation for building an AI-assisted artisan platform, focusing on product listing automation, storytelling, market alignment, and design enhancement.
+
+---
+
+## How to Edit This Project Locally
+
+**Requirements:** Node.js & npm installed (install with [nvm](https://github.com/nvm-sh/nvm))
+
+```bash
+# Clone the repository
+git clone <YOUR_GIT_REPO_URL>
+
+# Navigate to project folder
 cd <YOUR_PROJECT_NAME>
 
-# Step 3: Install the necessary dependencies.
+# Install dependencies
 npm i
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+Edit files using your preferred IDE or GitHub Codespaces. Changes can later be pushed to your repository.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+---
 
-**Use GitHub Codespaces**
+## How to Deploy
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+You can deploy locally or to Vercel, Netlify, or any cloud provider.
 
-## What technologies are used for this project?
+Once deployed, the platform will allow artisans to create AI-assisted listings, generate stories, and track sales online.
 
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/b30fe7cf-99fc-4edd-9ab4-6e8351edf555) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+---
