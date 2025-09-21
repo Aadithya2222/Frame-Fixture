@@ -34,7 +34,7 @@ const ModeToggle = () => {
                 onClick={() => handleModeChange(index, mode)}
                 className={`flex items-center gap-2 px-4 py-3 rounded-2xl text-sm font-semibold transition-all duration-300 flex-1 justify-center ${
                   isActive
-                    ? "bg-gradient-primary text-surface-elevated shadow-elegant transform scale-105"
+                    ? "bg-orange-primary text-white shadow-elegant transform scale-105"
                     : "text-text-secondary hover:text-orange-primary hover:bg-orange-light/20"
                 }`}
               >

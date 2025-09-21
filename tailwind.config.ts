@@ -73,9 +73,12 @@ export default {
       boxShadow: {
         'soft': 'var(--shadow-soft)',
         'elevated': 'var(--shadow-elevated)',
+        'elegant': 'var(--shadow-elegant)',
+        'glow': 'var(--shadow-glow)',
       },
       backgroundImage: {
         'orange-gradient': 'var(--orange-gradient)',
+        'gradient-primary': 'var(--gradient-primary)',
       },
       borderRadius: {
         lg: "var(--radius)",

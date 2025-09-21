@@ -69,8 +69,10 @@ const QuickActions = () => {
         <h2 className="text-xl font-bold text-text-primary">Quick actions</h2>
         <div className="flex items-center gap-3">
           <span className="text-sm text-text-secondary">View as</span>
-          <div className="px-4 py-2 bg-gradient-primary text-surface-elevated text-sm rounded-full font-semibold shadow-soft">
-            Artisan
+          <div className="flex gap-1">
+            <div className="px-4 py-2 bg-gradient-primary text-white text-sm rounded-full font-semibold shadow-soft">
+              Artisan
+            </div>
           </div>
         </div>
       </div>
@@ -99,7 +101,7 @@ const QuickActions = () => {
         <div className="pt-4 border-t border-orange-light/20">
           <button 
             onClick={handleViewMore}
-            className="w-full py-3 bg-gradient-primary text-surface-elevated rounded-2xl font-semibold shadow-elegant hover:shadow-glow transition-all duration-300 transform hover:scale-[1.02]"
+            className="w-full py-3 bg-gradient-primary text-white rounded-2xl font-semibold shadow-elegant hover:shadow-glow transition-all duration-300 transform hover:scale-[1.02]"
           >
             View more actions
           </button>

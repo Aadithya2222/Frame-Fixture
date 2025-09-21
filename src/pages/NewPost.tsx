@@ -156,7 +156,7 @@ const NewPost = () => {
           <div className="text-center mb-6">
             <Button 
               onClick={handleAnalyze}
-              className="w-full bg-gradient-primary text-surface-elevated font-semibold py-4 rounded-xl shadow-elegant hover:shadow-glow transition-all duration-300 transform hover:scale-105"
+              className="w-full bg-gradient-primary text-white font-semibold py-4 rounded-xl shadow-elegant hover:shadow-glow transition-all duration-300 transform hover:scale-105"
             >
               <Sparkles className="w-5 h-5 mr-2" />
               Analyze with AI
@@ -215,7 +215,7 @@ const NewPost = () => {
               />
               <Button 
                 size="sm"
-                className="absolute right-1 top-1 bg-orange-primary hover:bg-orange-primary/90 text-surface-elevated text-xs px-3 rounded-md"
+                className="absolute right-1 top-1 bg-orange-primary hover:bg-orange-primary/90 text-white text-xs px-3 rounded-md border-0"
               >
                 <RotateCcw className="w-3 h-3 mr-1" />
                 Regenerate
@@ -244,8 +244,8 @@ const NewPost = () => {
           <div className="text-center py-8">
             {analyzeStep === "analyzing" ? (
               <>
-                <div className="w-16 h-16 bg-gradient-primary rounded-full mx-auto mb-4 flex items-center justify-center animate-pulse">
-                  <Sparkles className="w-8 h-8 text-surface-elevated" />
+                <div className="w-16 h-16 bg-orange-primary rounded-full mx-auto mb-4 flex items-center justify-center animate-pulse">
+                  <Sparkles className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-xl font-semibold text-text-primary mb-2">Analyzing...</h3>
                 <p className="text-text-secondary">AI is processing your content</p>

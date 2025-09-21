@@ -160,7 +160,7 @@ const ProductPreview = () => {
             
             <Button 
               onClick={handleFinalPost}
-              className="w-full bg-gradient-primary text-surface-elevated font-semibold py-4 rounded-xl shadow-elegant hover:shadow-glow transition-all duration-300"
+              className="w-full bg-orange-primary text-white font-semibold py-4 rounded-xl shadow-elegant hover:shadow-glow transition-all duration-300"
             >
               <Check className="w-5 h-5 mr-2" />
               Final Post
