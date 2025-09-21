@@ -7,16 +7,23 @@ import BottomNav from "@/components/BottomNav";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background flex flex-col max-w-md mx-auto">
-      <Header />
-      <SearchBar />
+    <div className="min-h-screen bg-background flex flex-col max-w-md mx-auto relative">
+      {/* Header Section */}
+      <div className="bg-gradient-to-b from-surface-elevated to-background border-b border-orange-light/20">
+        <Header />
+        <SearchBar />
+      </div>
+      
+      {/* Mode Toggle */}
       <ModeToggle />
       
-      <div className="flex-1 overflow-y-auto pb-20">
+      {/* Main Content */}
+      <div className="flex-1 overflow-y-auto pb-24 px-0">
         <QuickActions />
         <PaymentStats />
       </div>
       
+      {/* Bottom Navigation */}
       <BottomNav />
     </div>
   );
