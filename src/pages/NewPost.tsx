@@ -2,7 +2,9 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Upload, RotateCcw, User, ChevronLeft, ChevronRight, Mic } from "lucide-react";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { Upload, RotateCcw, User, ChevronLeft, ChevronRight, Mic, Sparkles } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import Header from "@/components/Header";
 import BottomNav from "@/components/BottomNav";
 
@@ -10,6 +12,9 @@ const NewPost = () => {
   const [productTitle, setProductTitle] = useState("");
   const [productDescription, setProductDescription] = useState("");
   const [currentUploadType, setCurrentUploadType] = useState(0); // 0 for images, 1 for audio
+  const [showAnalyzeModal, setShowAnalyzeModal] = useState(false);
+  const [analyzeStep, setAnalyzeStep] = useState("analyzing"); // "analyzing" | "success"
+  const navigate = useNavigate();
 
   const handleLeftScroll = () => {
     if (currentUploadType > 0) {
@@ -21,6 +26,20 @@ const NewPost = () => {
     if (currentUploadType < 1) {
       setCurrentUploadType(currentUploadType + 1);
     }
+  };
+
+  const handleAnalyze = () => {
+    setShowAnalyzeModal(true);
+    setAnalyzeStep("analyzing");
+    
+    // Show analyzing for 3 seconds, then success
+    setTimeout(() => {
+      setAnalyzeStep("success");
+      setTimeout(() => {
+        setShowAnalyzeModal(false);
+        navigate("/product-preview");
+      }, 1500);
+    }, 3000);
   };
 
   return (
@@ -132,6 +151,17 @@ const NewPost = () => {
           <div className="text-center mb-6">
             <span className="text-text-secondary">Or</span>
           </div>
+
+          {/* Analyze Button */}
+          <div className="text-center mb-6">
+            <Button 
+              onClick={handleAnalyze}
+              className="bg-gradient-primary text-surface-elevated font-semibold px-8 py-3 rounded-xl shadow-elegant hover:shadow-glow transition-all duration-300"
+            >
+              <Sparkles className="w-5 h-5 mr-2" />
+              Analyze with AI
+            </Button>
+          </div>
         </div>
 
         {/* Manual Entry Section */}
@@ -206,6 +236,40 @@ const NewPost = () => {
       </div>
 
       <BottomNav />
+
+      {/* Analyze Modal */}
+      <Dialog open={showAnalyzeModal} onOpenChange={setShowAnalyzeModal}>
+        <DialogContent className="sm:max-w-md mx-auto bg-surface-elevated border-orange-light">
+          <div className="text-center py-8">
+            {analyzeStep === "analyzing" ? (
+              <>
+                <div className="w-16 h-16 bg-gradient-primary rounded-full mx-auto mb-4 flex items-center justify-center animate-pulse">
+                  <Sparkles className="w-8 h-8 text-surface-elevated" />
+                </div>
+                <h3 className="text-xl font-semibold text-text-primary mb-2">Analyzing...</h3>
+                <p className="text-text-secondary">AI is processing your content</p>
+                <div className="flex justify-center mt-4">
+                  <div className="flex space-x-1">
+                    <div className="w-2 h-2 bg-orange-primary rounded-full animate-bounce"></div>
+                    <div className="w-2 h-2 bg-orange-primary rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
+                    <div className="w-2 h-2 bg-orange-primary rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+                  </div>
+                </div>
+              </>
+            ) : (
+              <>
+                <div className="w-16 h-16 bg-green-500 rounded-full mx-auto mb-4 flex items-center justify-center">
+                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-semibold text-text-primary mb-2">Success!</h3>
+                <p className="text-text-secondary">Analysis completed successfully</p>
+              </>
+            )}
+          </div>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };
